@@ -25,7 +25,7 @@ seqan3_require_test ()
 # The trick is here to provide a cmake file as a directory property that executes the build command.
 file (WRITE "${CMAKE_CURRENT_BINARY_DIR}/build_test_targets.cmake"
             "execute_process (COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target api_test)\n"
-            "execute_process (COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target cli_test)\n"
+            # "execute_process (COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target cli_test)\n"
             "execute_process (COMMAND ${CMAKE_COMMAND} --build ${CMAKE_BINARY_DIR} --target header_test)\n")
 set_directory_properties (PROPERTIES TEST_INCLUDE_FILE "${CMAKE_CURRENT_BINARY_DIR}/build_test_targets.cmake")
 
@@ -68,7 +68,7 @@ else ()
     # Fetch data and add the tests.
     include (data/datasources.cmake)
     add_subdirectory (api)
-    add_subdirectory (cli)
+    # add_subdirectory (cli)
     add_subdirectory (coverage)
 endif ()
 
